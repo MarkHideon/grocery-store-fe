@@ -24,36 +24,29 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        headerShown: false,
       }}>
       <Tabs.Screen
-        name="index"
+        name="Login"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: 'Sign in',
+          tabBarIcon: ({ color }) => <TabBarIcon name="sign-in" color={color} />,
+          tabBarStyle: { display: 'none' }, // Hide this tab
+
+
         }}
       />
-      <Tabs.Screen
-        name="two"
+         <Tabs.Screen
+        name="SignUp"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Sign Up',
+          tabBarIcon: ({ color }) => <TabBarIcon name="sign-in" color={color} />,
+          tabBarStyle: { display: 'none' }, // Hide this tab
+
         }}
       />
+      
+      
     </Tabs>
   );
 }
